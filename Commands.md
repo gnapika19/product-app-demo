@@ -55,33 +55,17 @@ docker ps -a --filter name=product_catalog_kafka  - to see killed containers
 
 
 
+<!-- sudo mkdir -p /opt/product-app
+sudo chown -R ec2-user:ec2-user /opt/product-app   # or ubuntu:ubuntu -->
 
------ after ec2 create -------
+sudo yum install -y git
 
-
-sudo mkdir -p /opt/product-app
-sudo chown -R ec2-user:ec2-user /opt/product-app   # or ubuntu:ubuntu
-
-
------------ install docker  ---------
-
-sudo yum update -y
-sudo amazon-linux-extras enable docker
-sudo yum install -y docker
+sudo yum -y install docker
 sudo systemctl enable --now docker
-
------------ install docker & compose -----------
-
+docker --version
 
 sudo mkdir -p /usr/local/lib/docker/cli-plugins
-
-sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
+sudo curl -fSL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
   -o /usr/local/lib/docker/cli-plugins/docker-compose
-
 sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
-
 docker compose version
-
-
-
----------------
