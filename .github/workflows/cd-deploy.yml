@@ -15,7 +15,7 @@ jobs:
       - name: SSH deploy (git pull + compose build + up)
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: 3.150.123.81
+          host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.SSH_KEY }}
           port: 22
